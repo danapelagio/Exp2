@@ -1,0 +1,26 @@
+def calculate_tax(income):
+    if income <= 250000:
+        return 0
+    elif income <= 400000:
+        return (income - 250000) * 0.05
+    elif income <= 800000:
+        return (income - 400000) * 0.10 + 37500
+    elif income <= 2000000:
+        return (income - 800000) * 0.15 + 93750
+    elif income <= 8000000:
+        return (income - 2000000) * 0.20 + 287500
+    else:
+        return (income - 8000000) * 0.25 + 987500
+
+def calculate_annual_tax(income):
+    return calculate_tax(income)
+
+def calculate_monthly_tax(income):
+    return calculate_tax(income) / 12
+
+income = int(input("Enter your annual income: "))
+annual_tax = calculate_annual_tax(income)
+monthly_tax = calculate_monthly_tax(income)
+
+print("Annual Tax:", annual_tax)
+print("Monthly Tax:", monthly_tax)
